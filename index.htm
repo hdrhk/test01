@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>System Busy - Hong Kong Ticketing Limited</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="robots" content="noindex, nofollow">
+            <link rel="stylesheet" type="text/css" href="/css/main.css">
+                <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+                    </head>
+    <body>
+        <div class="con" style="width:982px">
+            <div class="main">
+                <div id="header">
+                    <a class="logo" href="http://www.hkticketing.com">
+                        <img src="/images/logo.png" height="76" width="168">
+                            </a>
+                    <div class="clear"></div>
+                </div>
+                <div id="mainCon">
+                    <div class="top_bar">
+                    </div>
+                    <div class="inner_con">
+                        <div><h1 style="font-size:30px;padding:0 0 30px 0;">System Busy / 系統繁忙</h1></div>
+                        <div style="font-size:20px;text-align:center;padding:0 30px 30px 25px;">Sorry, the booking system is now busy. </div>
+                        <div style="font-size:20px;text-align:center;padding:0 30px 30px 25px;">抱歉，購票系統目前非常繁忙。</div>
+                        <div style="font-size:25px;text-align:center;">You will be redirected in  <span id="busyTimer">2 seconds</span>.</div>
+                        <div style="font-size:25px;text-align:center;">閣下將於<span id="busyTimerC">2</span>秒後被重新轉載。</div>
+                        <div style="font-size:25px;text-align:center;"><img src="/images/loader.gif" /></div>
+                        <div style="font-size:25px;text-align:center;">Please do not refresh this page.</div>
+                        <div style="font-size:25px;text-align:center;">請不要更新頁面。</div>
+                    </div>
+                </div>
+                <div id="footer">
+                    <div class="copyright">
+                        <span>© 1999 -</span><span id="year"> 2018 </span><span>Hong Kong Ticketing, All rights reserved.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var busyFor = 1;
+            window.setTimeout("reload();", 1000);
+            function reload() {
+                if(busyFor > 0)
+                {
+                    busyFor--;
+                    document.getElementById("busyTimer").innerHTML = (busyFor == 1 ? "1 second" : busyFor + " seconds");
+                    document.getElementById("busyTimerC").innerHTML = (busyFor == 1 ? "1" : busyFor + "");
+                    window.setTimeout("reload();", 1000);
+                }
+                else
+                {
+                    if(document.location.search) {
+                        //var target = document.location.search;
+                    } else {
+                        var target = " http://www.hkticketing.com/";
+                    }
+                    document.getElementById("busyTimer").innerHTML = "0 seconds";
+                    document.location.href = target.slice(1);
+                }
+            }
+        </script>
+    </body>
+</html>
